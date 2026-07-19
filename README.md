@@ -33,6 +33,9 @@
 
 未能安全识别的题目会以占位提示保留题号，但不会写入 Word。题图读取失败不会中断整个文档，结果页会说明受影响的题号。
 
+## 支持项目
+如果本项目对你有帮助，还请给一个免费的star，感谢！
+
 ## 项目来源、修改与许可
 
 - 上游项目：[`soundstarrain/yuketang-assistant`](https://github.com/soundstarrain/yuketang-assistant)（雨课堂考试助手）。
