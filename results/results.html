@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>题目识别结果</title>
+  <link rel="stylesheet" href="../assets/katex/katex.min.css">
+  <link rel="stylesheet" href="results.css">
+  <script defer src="../shared/namespace.js"></script>
+  <script defer src="../shared/limits.js"></script>
+  <script defer src="../shared/url-policy.js"></script>
+  <script defer src="../shared/rich-text.js"></script>
+  <script defer src="../shared/model.js"></script>
+  <script defer src="../assets/katex/katex.min.js"></script>
+  <script defer src="image-resolver.js"></script>
+  <script defer src="../export/docx-exporter.js"></script>
+  <script defer src="results.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#questions">跳到题目正文</a>
+  <header class="command-bar">
+    <div class="brand-block">
+      <p class="eyebrow">雨课堂题目导出器</p>
+      <h1 id="page-title" tabindex="-1">题目识别结果</h1>
+      <p id="source-summary" class="source-summary"></p>
+    </div>
+    <button id="export-word" class="primary-action" type="button" disabled>导出 Word</button>
+  </header>
+  <div id="live-status" class="sr-status" role="status" aria-live="polite" aria-atomic="true"></div>
+  <section id="warning-summary" class="warning-summary" hidden></section>
+  <div id="app" class="result-layout" hidden>
+    <nav class="question-rail" aria-label="题目目录">
+      <ol id="question-nav"></ol>
+    </nav>
+    <main id="questions" tabindex="-1"></main>
+  </div>
+  <section id="error-state" class="error-state" role="alert" hidden>
+    <h2 id="error-title" tabindex="-1">无法显示识别结果</h2>
+    <p id="error-message"></p>
+  </section>
+</body>
+</html>

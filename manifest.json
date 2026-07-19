@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "minimum_chrome_version": "112",
+  "name": "雨课堂题目导出器",
+  "version": "1.0.0",
+  "description": "识别雨课堂与学堂在线题目，在独立结果页核对后导出 Word。",
+  "permissions": ["scripting", "storage", "alarms"],
+  "host_permissions": [
+    "https://yuketang.cn/*",
+    "https://*.yuketang.cn/*",
+    "https://xuetangx.com/*",
+    "https://*.xuetangx.com/*"
+  ],
+  "content_scripts": [{
+    "matches": [
+      "https://yuketang.cn/*",
+      "https://*.yuketang.cn/*",
+      "https://xuetangx.com/*",
+      "https://*.xuetangx.com/*"
+    ],
+    "js": [
+      "shared/namespace.js",
+      "shared/limits.js",
+      "shared/url-policy.js",
+      "shared/rich-text.js",
+      "shared/model.js",
+      "content/source-normalizer.js",
+      "content/font-decoder.js",
+      "content/question-extractors.js",
+      "content/content-script.js"
+    ],
+    "run_at": "document_end"
+  }],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "识别并导出题目" },
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; script-src 'self'; object-src 'none'; base-uri 'none'; frame-src 'none'; connect-src https://yuketang.cn https://*.yuketang.cn https://xuetangx.com https://*.xuetangx.com; img-src 'self' data: blob:; style-src 'self'; font-src 'self'"
+  },
+  "web_accessible_resources": [{
+    "resources": [
+      "assets/fonts/SourceHanSansSC-VF.ttf",
+      "font_maps/exam_font_b0ff80437f6f4c24bf9b940e1e33c89e.json"
+    ],
+    "matches": [
+      "https://yuketang.cn/*",
+      "https://*.yuketang.cn/*",
+      "https://xuetangx.com/*",
+      "https://*.xuetangx.com/*"
+    ]
+  }]
+}
